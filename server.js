@@ -20,14 +20,16 @@ var app = express();
     next();
   });
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}  
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
 app.use("/", routes);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+
 
 
 var db = process.env.MONGODB_URI || "mongodb://localhost/NytSearchDB";
