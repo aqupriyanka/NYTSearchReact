@@ -42,17 +42,21 @@ const API = {
 
   saveArticle: (article) => {
     console.log("before calling axios");
-    return axios.post(`http://localhost:${PORT}/api/saved`,{article});
+    // return axios.post(`http://localhost:${PORT}/api/saved`,{article});
+    return axios.post("/api/saved",{article});
+
   },
 
   getArticles : () => {
     console.log("inside getArticles");
-    return axios.get(`http://localhost:${PORT}/api/saved`);
+    return axios.get("/api/saved");
+    // return axios.get(`http://localhost:${PORT}/api/saved`);
+
   },
 
   deleteArticle : (article) => {
     console.log("inside deleteArticle == ",article);
-    return axios.delete(`http://localhost:${PORT}/api/saved/${article._id}`,{article});
+    return axios.delete("/api/saved/${article._id}",{article});
   }
 
 };
