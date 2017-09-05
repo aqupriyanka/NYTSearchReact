@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const PORT = process.env.PORT || 3001;
+
 const API = {
   // Retrieves all quotes from the db
   // getQuotes: function() {
@@ -40,17 +42,17 @@ const API = {
 
   saveArticle: (article) => {
     console.log("before calling axios");
-    return axios.post("http://127.0.0.1:3001/api/saved",{article});
+    return axios.post(`http://localhost:${PORT}/api/saved`,{article});
   },
 
   getArticles : () => {
     console.log("inside getArticles");
-    return axios.get("http://127.0.0.1:3001/api/saved");
+    return axios.get(`http://localhost:${PORT}/api/saved`);
   },
 
   deleteArticle : (article) => {
     console.log("inside deleteArticle == ",article);
-    return axios.delete(`http://127.0.0.1:3001/api/saved/${article._id}`,{article});
+    return axios.delete(`http://localhost:${PORT}/api/saved/${article._id}`,{article});
   }
 
 };
