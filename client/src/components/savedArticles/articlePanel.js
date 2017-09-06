@@ -8,11 +8,11 @@ const getArticles = (props) =>{
 			<div>
 			{props.articles.map(article =>
 			<div className="card" id="wellSection">
-				<div className="card-block wellPosition" id={handleCounter()}>
+				<div className="card-block" id={handleCounter()}>
 					<h3>
-						<span className="label label-primary counterNumber">{articleCounter}</span>
-						<strong>
-							<a href={article.url} className="card-title">{article.title}</a>
+						<span className="badge badge-info counterNumber">{articleCounter}</span>
+						<strong><u>
+							<a href={article.url} className="card-title">{article.title}</a></u>
 						</strong>
 					</h3>
 					<div className="panelRestBody">

@@ -55,8 +55,10 @@ const API = {
   },
 
   deleteArticle : (article) => {
-    console.log("inside deleteArticle == ",article);
+    // console.log("inside deleteArticle == ",article);
     return axios.delete("/api/saved/${article._id}",{article});
+    // return axios.delete(`http://localhost:${PORT}/api/saved/${article._id}`,{article});
+    
   }
 
 };

@@ -7,18 +7,23 @@ const getArticles = (props) =>{
 		return (
 			<div>
 			{props.results.map(articles =>
-			<div className="panel-body" id="wellSection">
-				<div className="well" id={handleCounter()}>
+			<div className="card" id="wellSection">
+				<div className="card-block result-block" id={handleCounter()}>
 					<h3>
-						<span className="label label-primary">{articleCounter}</span>
+						<span className="badge badge-info counterNumber">{articleCounter}</span>
 						<strong>
-							<a href={articles.web_url}>{articles.headline.main}</a>
+							<a href={articles.web_url} className="card-title">{articles.headline.main}</a>
 						</strong>
 					</h3>
-					<h5>{articles.byline.original}</h5>
-					<h5>{articles.pub_date}</h5>
-					<p>{articles.snippet}</p>
-					<button className="btn btn-info" onClick={props.handleSaveArticle(articles)}>Save</button>
+					<div className="panelRestBody">
+						{(articles.byline && String(articles.byline.original) !== null) ? 
+								(<h5>{articles.byline.original}</h5>)
+									: (<div></div>)
+							}
+						<h5>{articles.pub_date}</h5>
+						<p>{articles.snippet}</p>
+					</div>
+					<button className="btn btn-info deleteButton" onClick={props.handleSaveArticle(articles)}>Save</button>
 				</div>
 			</div>
 			)}
@@ -38,9 +43,9 @@ const ResultPanel = (props) =>
 <div className="row">
 	<div className="col-sm-12">
 
-		<div className="panel panel-primary">
+		<div className="card">
 
-			<div className="panel-heading">
+			<div className="card-header info-color lighten-2 resultHeader">
 				<h3 className="panel-title"><strong>
 				<i className="fa fa-table"></i>   Top Articles</strong></h3>
 			</div>

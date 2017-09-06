@@ -57,7 +57,8 @@ class Search extends Component{
   		.then((res) => {
   			console.log("Result == ",res.data.response.docs);
   			let resultedDocs = [];
-  			if(this.state.numRecordsSelect < 10 && res.data.response.docs.length !== 0 ){
+  			if(this.state.numRecordsSelect < 10 && res.data.response.docs.length !== 0 
+          && res.data.response.docs.length > this.state.numRecordsSelect){
 				for(let i=0; i< this.state.numRecordsSelect; i++){
 					resultedDocs.push(res.data.response.docs[i]);
 				}
@@ -118,8 +119,7 @@ class Search extends Component{
 	render(){
 		return(
 				<div>
-				<NytHeader background="pink"/>
-				<div className="container">
+				<div className="container form-dark">
 					<Form 
 					searchTerm={this.state.searchTerm}
 					startYear={this.state.startYear}

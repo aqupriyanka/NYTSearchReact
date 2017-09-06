@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navpills from "./Navpills";
 import Search from "./search/search";
 import SavedArticles from "./savedArticles/articles";
+import NytHeader from "./NytHeader";
 
 
 class PortfolioContainer extends Component {
@@ -25,12 +26,13 @@ class PortfolioContainer extends Component {
   render() {
     return (
       <div>
-        <Navpills
-          currentPage={this.state.currentPage}
-          handlePageChange={this.handlePageChange}
-        />
-          {this.getPageRender()}
+              <Navpills className="navbar navbar-dark fixed-top navtabs scrolling-navbar top-nav-collapse"
+                currentPage={this.state.currentPage}
+                handlePageChange={this.handlePageChange}
+              />
+              <NytHeader background="rgb(15, 48, 85)"/>
 
+                {this.getPageRender()}
       </div>
     );
   }
